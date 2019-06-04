@@ -54,9 +54,6 @@ function getValues() {
                 // Looping through each result item (the 10 of them)
                 for (var i = 0; i < results.length; i++) {
 
-                    // Creating and storing a div tag
-                    var gifDiv = $("<div>");
-
                     // Creating a paragraph tag with the result item's rating
                     var rating = $("<span>").text("Rating: " + results[i].rating);
 
@@ -67,7 +64,7 @@ function getValues() {
                     gifImage.addClass("gif")
                     gifImage.attr("data-state", "still")
                     gifImage.attr("data-animate", results[i].images.fixed_height.url)
-                    gifImage.attr("data-still", results[i].images.fixed_height.url)
+                    gifImage.attr("data-still", results[i].images.fixed_height_still.url)
                     gifImage.attr("alt", "gif image");
                     var state = $(this).attr("data-state");
                     // If the clicked image's state is still, update its src attribute to what its data-animate value is.
@@ -80,14 +77,8 @@ function getValues() {
                         $(this).attr("src", $(this).attr("data-still"));
                         $(this).attr("data-state", "still");
                     }
-
-
-                    // Appending the paragraph and image tag to the gifDiv
-                    gifDiv.append(gifImage);
-                    gifDiv.append(rating);
-
                     // Appending the gifDiv to the HTML page in the "#gifs" div
-                    $("#gifs").append(gifDiv);
+                    $("#gifs").append(rating, gifImage);
                 }
 
             });
