@@ -19,11 +19,11 @@ $("#find-gif").on("click", function (event) {
     event.preventDefault();
     // Code to grab the text the user types into the input field. Adds the new word into the results array
     results.push($("#gif-input").val().trim());
+    $("#gif-input").val("");
     // The getButtons function is called, rendering the list of results buttons
     getButtons();
     getValues();
 });
-
 
 function clearSearch() {
     $("#gifs").empty();
@@ -69,18 +69,18 @@ function getValues() {
                     $("#gifs").append(rating, gifImage);
                 }
 
-                    $(".gif").on("click", function () {
-                        var state = $(this).attr("data-state");
-                        // If the clicked image's state is still, update its src attribute to what its data-animate value is. Then, set the image's data-state to animate
-                        // Else set src to the data-still value
-                        if (state === "still") {
-                            $(this).attr("src", $(this).attr("data-animate"));
-                            $(this).attr("data-state", "animate");
-                        } else {
-                            $(this).attr("src", $(this).attr("data-still"));
-                            $(this).attr("data-state", "still");
-                        }
-                    });
+                $(".gif").on("click", function () {
+                    var state = $(this).attr("data-state");
+                    // If the clicked image's state is still, update its src attribute to what its data-animate value is. Then, set the image's data-state to animate
+                    // Else set src to the data-still value
+                    if (state === "still") {
+                        $(this).attr("src", $(this).attr("data-animate"));
+                        $(this).attr("data-state", "animate");
+                    } else {
+                        $(this).attr("src", $(this).attr("data-still"));
+                        $(this).attr("data-state", "still");
+                    }
+                });
 
             });
     });
