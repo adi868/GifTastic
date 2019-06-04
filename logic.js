@@ -1,16 +1,101 @@
-var topics = [];
+var results = [ "horse", "cat"];
 
+// Function for displaying button data
+function getButtons() {
+    $("#buttons-view").empty();
+    // Delete the content inside the buttons-view div prior to adding new results (this is necessary otherwise you will have repeat buttons)
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    // Example queryURL for Giphy API
-    var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9";
+    // Loop through the array of results, then generate buttons for each topic in the array
+    for (var i = 0; i < results.length; i++) {
+        var btn = $("<button>");
+        btn.addClass("btnGif")
+        btn.attr("data-results", results[i])
+        btn.text(results[i])
+        $("#buttons-view").append(btn)
+    }
+}
 
+$("#find-gif").on("click", function (event) {
+    // event.preventDefault() prevents submit button from trying to send a form.
+    event.preventDefault();
+    // Code to grab the text the user types into the input field. Adds the new word into the results array
+    results.push($("#gif-input").val().trim());
+    // The getButtons function is called, rendering the list of results buttons
+    getButtons();
+    getValues();
+});
+
+function getValues(){
+$(".btnGif").on("click", function () {
+    var animal = $(this).attr("data-results");
+console.log(animal)
+    // Storing our giphy API URL for an animal gif
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        animal + "&api_key=DiCdrbZz2hQYAeVwOyJqvffQrkYJvdMi&limit=10";
+
+    // Performing an AJAX GET request to our queryURL
     $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-      console.log(response);
-    });
-  </script>
+            url: queryURL,
+            method: "GET"
+        })
 
+        // After the data from the AJAX request comes back
+        .then(function (response) {
+            console.log(queryURL);
+            console.log(response);
+            // storing the data from the AJAX request in the results variable
+            var results = response.data;
+
+            // Looping through each result item (the 10 of them)
+            for (var i = 0; i < results.length; i++) {
+
+                // Creating and storing a div tag
+                var gifDiv = $("<div>");
+            
+                // Creating a paragraph tag with the result item's rating
+                var rating = $("<span>").text("Rating: " + results[i].rating);
+
+                // Creating and storing an image tag
+                var gifImage = $("<img>");
+                // Setting the src attribute of the image to a property pulled off the result item
+                gifImage.attr("src", results[i].images.fixed_height.url);
+                gifImage.addClass("gif")
+                gifImage.attr("data-state", "still")
+                gifImage.attr("data-animate", results[i].images.fixed_height.url)
+                gifImage.attr("data-still", results[i].images.fixed_height.url)
+                gifImage.attr("alt", "gif image");
+
+
+
+
+
+                // Appending the paragraph and image tag to the gifDiv
+                gifDiv.append(gifImage);
+                gifDiv.append(rating);
+            
+                // Appending the gifDiv to the HTML page in the "#gifs" div
+                $("#gifs").append(gifDiv);
+            }
+
+        });
+});
+}
+
+
+$(".btnGif").on("click", function () {
+    // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+    var state = $(this).attr("data-state");
+    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+    // Then, set the image's data-state to animate
+    // Else set src to the data-still value
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
+
+getButtons();
+getValues();
