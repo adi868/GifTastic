@@ -10,6 +10,9 @@ button {
     letter-spacing: 2px;
 }
 
+.btnGif.red-bg{
+ background-color:#00cc00; 
+}
 h1 {
     font-size: 100px;
     padding: 30px;
