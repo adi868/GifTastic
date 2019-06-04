@@ -10,11 +10,26 @@ button {
     letter-spacing: 2px;
 }
 
-.btnGif.red-bg{
- background-color:#00cc00; 
+.btnGif:hover, .btnGif.color-bg {
+    /* background-color:#99ee99;  */
+    background-color: red;
+    outline: 0;
 }
+
 h1 {
+    display: inline-block;
     font-size: 100px;
+    padding: 30px;
+    width: 420px;
+    background-color: white;
+    font-family: 'Londrina Solid', cursive;
+    border-radius: 15px;
+    letter-spacing: 1.5px;
+}
+
+h3{
+    display: inline-block;
+    font-size: 20px;
     padding: 30px;
     width: 420px;
     justify-content: center;
@@ -22,7 +37,10 @@ h1 {
     background-color: white;
     font-family: 'Londrina Solid', cursive;
     border-radius: 15px;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.5px;  
+    margin: 20px;
+    margin-bottom: 50px;
+    margin-left:70px;
 }
 
 #new-animal-form {
@@ -47,6 +65,11 @@ h1 {
     width: 100px;
     background: lightseagreen;
     letter-spacing: 1.5px;
+    outline: 0;
+}
+
+#find-gif:hover{
+    background: rgb(36, 143, 137); 
 }
 
 label {
@@ -56,6 +79,7 @@ label {
 #gif-input {
     border-radius: 15px;
     background: rgb(248, 212, 218);
+    outline: 0;
 }
 
 img {
@@ -63,9 +87,8 @@ img {
     border: 6px solid rgb(151, 225, 235);
 }
 
-span{
+span {
     font-weight: bold;
     font-family: 'Londrina Solid', cursive;
     font-size: 20px;
 }
-

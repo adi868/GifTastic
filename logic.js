@@ -32,7 +32,8 @@ function clearSearch() {
 function getValues() {
     $(".btnGif").on("click", function () {
         clearSearch();
-        $(this).toggleClass('red-bg');
+        $(this).toggleClass('color-bg');
+        $(".btnGif").not(this).removeClass('color-bg');
         var animal = $(this).attr("data-results");
         console.log(animal)
         // Storing our giphy API URL for an animal gif

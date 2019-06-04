@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GifTastic</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -14,20 +15,26 @@
 <body>
 
     <body background="cute.jpg">
-        <div class="container">
-            <h1>GifTastic</h1>
-            <div id="buttons-view"></div>
-            <form id="new-animal-form">
-                <label for="gif-input">ADD AN ANIMAL </label>
-                <input type="text" id="gif-input"><br>
-                <!-- This button will trigger our AJAX call -->
-                <input id="find-gif" type="submit" value="Submit">
-            </form>
-            <!-- Gifs will get dumped here -->
-            <div id="gifs"></div>
-        </div>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="logic.js"></script>
+            <div class="container">
+            <header>
+                <h1>GifTastic</h1>
+                <h3>
+                    Click the buttons to see GIFS! Or add your own!
+                </h3>
+            </header>
+                <div id="buttons-view"></div>
+                <form id="new-animal-form">
+                    <label for="gif-input">ADD AN ANIMAL </label>
+                    <input type="text" id="gif-input"><br>
+                    <!-- This button will trigger our AJAX call -->
+                    <input id="find-gif" type="submit" value="Submit">
+                </form>
+                <!-- Gifs will get dumped here -->
+                <div id="gifs"></div>
+            </div>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+            </script>
+            <script src="logic.js"></script>
     </body>
 
 </html>
