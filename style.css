@@ -87,10 +87,14 @@ img {
     border: 6px solid rgb(151, 225, 235);
     margin: 10px;
     position:relative;
+    z-index: 1;
 }
 
  span {
     font-weight: bold;
     font-family: 'Londrina Solid', cursive;
     font-size: 20px;
+    display: inline-block;
+    position:absolute;
+    z-index: 1000;
 }
