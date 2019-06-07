@@ -58,17 +58,18 @@ function getValues() {
 
                     // Creating a paragraph tag with the result item's rating
                     var rating = $("<span>").text("Rating: " + results[i].rating);
-
                     // Creating and storing an image tag
                     var gifImage = $("<img>");
                     // Setting the src attribute of the image to a property pulled off the result item
                     gifImage.attr("src", results[i].images.fixed_height_still.url);
+                    gifImage.attr("style", "width:250px; height:250px")
                     gifImage.addClass("gif")
                     gifImage.attr("data-state", "still")
                     gifImage.attr("data-animate", results[i].images.fixed_height.url)
                     gifImage.attr("data-still", results[i].images.fixed_height_still.url)
                     gifImage.attr("alt", "gif image");
-                    $("#gifs").append(rating, gifImage);
+                    $("#gifs").append(rating);
+                    $("#gifs").append(gifImage);
                 }
 
                 $(".gif").on("click", function () {
