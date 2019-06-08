@@ -67,10 +67,13 @@ function getValues() {
                     gifImage.attr("data-state", "still")
                     gifImage.attr("data-animate", results[i].images.fixed_height.url)
                     gifImage.attr("data-still", results[i].images.fixed_height_still.url)
+                    //flipping between still and moving image of gif
                     gifImage.attr("alt", "gif image");
                     $("#gifs").append(rating);
                     $("#gifs").append(gifImage);
+
                 }
+                
 
                 $(".gif").on("click", function () {
                     var state = $(this).attr("data-state");
@@ -84,7 +87,7 @@ function getValues() {
                         $(this).attr("data-state", "still");
                     }
                 });
-
+                
             });
     });
 }
