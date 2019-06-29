@@ -1,6 +1,4 @@
 # GifTastic
-GIF Generator Application using RESTful APIs
-
 This application uses the GIPHY API to make a dynamic web page that populates with gifs of your choice. Choose a search item, and watch as the application renders and displays the gif you chose! Toggle between button choices and click the images to see your GIFs come to life. As a bonus, we've included the rating (PG, G, etc.) of each GIF as well (for the youngins).
 
 Check it out at: https://adi868.github.io/GifTastic/
