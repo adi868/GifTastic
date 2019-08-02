@@ -69,7 +69,7 @@ function getValues() {
                     gifImage.attr("data-still", results[i].images.fixed_height_still.url)
                     //flipping between still and moving image of gif
                     gifImage.attr("alt", "gif image");
-                    $("#gifs").append(rating);
+                    // $("#gifs").append(rating);
                     $("#gifs").append(gifImage);
 
                 }
