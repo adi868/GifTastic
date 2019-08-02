@@ -9,3 +9,6 @@ Check it out at: https://adi868.github.io/GifTastic/.
 * JavaScript
 * jQuery
 * RESTful API
+
+### Developer
+Adina Cianciotto
