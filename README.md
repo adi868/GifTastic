@@ -10,5 +10,11 @@ Check it out at: https://adi868.github.io/GifTastic/.
 * jQuery
 * RESTful API
 
-### Developer:
-Adina Cianciotto
+#### Screenshot:
+![Screenshot1](GifTastic.png)
+
+#### Deployed Link: 
+[GifTastic](https://adi868.github.io/GifTastic/)
+
+---
+© 2019 Adina Cianciotto adi868
